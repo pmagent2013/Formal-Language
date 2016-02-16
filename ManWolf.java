@@ -57,7 +57,6 @@ public class ManWolf {
                 state = delta[state][item];
             }catch(ArrayIndexOutOfBoundsException ex){
                 state = delta[state][item]; //possible solution
-                //System.out.println("You fucked up");
             }
         }
         //Return the result of the check
