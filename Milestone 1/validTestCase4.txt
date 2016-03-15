@@ -1,0 +1,3 @@
+var t
+t = " torin "
+print ( 2 + t )
