@@ -1,0 +1,35 @@
+95 pts
+
+Neat DFA diagram in a .pdf
+- hard to read
+State-transition table
+- ok
+Descriptions of each state
+- ok
+5 test cases accepted by the DFA
+- ok
+5 test cases rejected by the DFA 
+- ok
+
+Analysis
+- Good quality of DFA diagram
+- Good state descriptions
+- Good and efficient construction of the DFA
+
+Completeness 
+- Test cases are difficult and interesting
+- Includes both correct and incorrect statements
+- Includes both correct and incorrect asignments
+- Includes both correct and incorrect identifiers
+
+Correctness
+- DFA diagram is incorrect:
+  > what is q29? it does not seem to lead anywhere, it seems like an error
+  > state, but it is not
+- Tables are incorrect
+  > description of q29 does not match DFA
+- Test cases are correct
+
+
+
+- Dr. Rivas
