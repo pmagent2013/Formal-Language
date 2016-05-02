@@ -27,8 +27,7 @@ import java.awt.Insets;
 public class FormalLanguageMilestone2Frame extends JFrame {
 
 	private JPanel contentPane;
-	private static JEditorPane editorPane = new JEditorPane();
-	private static JTextPane tPane;
+	private static JTextPane textPane;
 	public static ArrayList<Integer> statesVisited = new ArrayList<Integer>();
 	
 
@@ -58,21 +57,12 @@ public class FormalLanguageMilestone2Frame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);            
 
-        EmptyBorder eb = new EmptyBorder(new Insets(0, 0, 150, 250));
+        textPane = new JTextPane();
+        textPane.setPreferredSize(new Dimension(500, 250));
+        textPane.setBorder(new EmptyBorder(0, 0, 100, 100));
+        textPane.setMargin(new Insets(0, 0, 0, 0));
 
-        tPane = new JTextPane();
-        tPane.setPreferredSize(new Dimension(500, 250));
-        tPane.setBorder(new EmptyBorder(0, 0, 100, 100));
-        //tPane.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
-        tPane.setMargin(new Insets(0, 0, 0, 0));
-
-        contentPane.add(tPane);
-
-        //appendToPane(tPane, "My Name is Too Good.\n", Color.RED);
-        //appendToPane(tPane, "I wish I could be ONE of THE BEST on ", Color.BLUE);
-        //appendToPane(tPane, "Stack", Color.DARK_GRAY);
-        //appendToPane(tPane, "Over", Color.MAGENTA);
-        //appendToPane(tPane, "flow", Color.ORANGE);
+        contentPane.add(textPane);
 
         getContentPane().add(contentPane);
 
@@ -80,10 +70,10 @@ public class FormalLanguageMilestone2Frame extends JFrame {
         setVisible(true);   
 		
 		
-		tPane.addKeyListener(new KeyAdapter() {
+        textPane.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				String whatToEvaluate = tPane.getText();
+				String whatToEvaluate = textPane.getText();
 				parse(whatToEvaluate);
 			}
 		});
@@ -97,7 +87,7 @@ public class FormalLanguageMilestone2Frame extends JFrame {
 		 System.out.println(statesVisited);
 		 String charToAdd = "";
 		 for(int i = 0; i < statesVisited.size(); i++){
-			 Document doc = tPane.getDocument();
+			 Document doc = textPane.getDocument();
 			 try {
 				charToAdd = doc.getText(doc.getLength() - 1, 1);	
 				doc.remove(doc.getLength()-1, 1);
@@ -106,20 +96,20 @@ public class FormalLanguageMilestone2Frame extends JFrame {
 				e.printStackTrace();
 			}
 			 if(statesVisited.get(i) == 1 || statesVisited.get(i) == 2 || statesVisited.get(i) == 3 || statesVisited.get(i) == 4 || statesVisited.get(i) == 5){
-				 appendToPane(tPane, charToAdd, Color.BLUE, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.BLUE, doc.getLength());
 			 }
 			 else if(statesVisited.get(i) == 32 || statesVisited.get(i) == 33 || statesVisited.get(i) == 34 || statesVisited.get(i) == 35
 					 || statesVisited.get(i) == 36 || statesVisited.get(i) == 37 || statesVisited.get(i) == 38){
-				 appendToPane(tPane, charToAdd, Color.GREEN, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.GREEN, doc.getLength());
 			 }
 			 else if(statesVisited.get(i) == 24 || statesVisited.get(i) == 25 || statesVisited.get(i) == 26 || statesVisited.get(i) == 10
 					 || statesVisited.get(i) == 11 || statesVisited.get(i) == 12 || statesVisited.get(i) == 13 || statesVisited.get(i) == 9
 					 || statesVisited.get(i) == 14 || statesVisited.get(i) == 44 || statesVisited.get(i) == 45 || statesVisited.get(i) == 46
 					 || statesVisited.get(i) == 47 || statesVisited.get(i) == 48){
-				 appendToPane(tPane, charToAdd, Color.CYAN, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.CYAN, doc.getLength());
 			 }
 			 else if(statesVisited.get(i) == 29 || statesVisited.get(i) == 28 || statesVisited.get(i) == 21 || statesVisited.get(i) == 39){
-				 appendToPane(tPane, charToAdd, Color.MAGENTA, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.MAGENTA, doc.getLength());
 			 }
 			 else if(statesVisited.get(i) == 31 || statesVisited.get(i) == 7 || statesVisited.get(i) == 9 || statesVisited.get(i) == 13
 					 || statesVisited.get(i) == 48 || statesVisited.get(i) == 18 || statesVisited.get(i) == 23 || statesVisited.get(i) == 20
@@ -127,10 +117,10 @@ public class FormalLanguageMilestone2Frame extends JFrame {
 					 || statesVisited.get(i) == 19 || statesVisited.get(i) == 99 || statesVisited.get(i) == 6 || statesVisited.get(i) == 16 
 					 || statesVisited.get(i) == 40 || statesVisited.get(i) == 41 || statesVisited.get(i) == 43 || statesVisited.get(i) == 27
 					 || statesVisited.get(i) == 22 || statesVisited.get(i) == 17 || statesVisited.get(i) == 50 || statesVisited.get(i) == 51){
-				 appendToPane(tPane, charToAdd, Color.BLACK, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.BLACK, doc.getLength());
 			 }
 			 else{
-				 appendToPane(tPane, charToAdd, Color.RED, doc.getLength());
+				 appendToPane(textPane, charToAdd, Color.RED, doc.getLength());
 			 }
 			 
 		 }
