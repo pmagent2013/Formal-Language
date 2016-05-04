@@ -1,0 +1,3 @@
+From inside the src folder execute:
+javac FormalLanguageMilestone2Frame.java
+Next execute java FormalLanguageMilestone2Frame
